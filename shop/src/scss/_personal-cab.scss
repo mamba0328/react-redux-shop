@@ -1,0 +1,120 @@
+.personal-cab {
+    display: grid;
+    grid-template: 1fr 1fr/ 1fr 1fr;
+    padding: 0 25px;
+    gap: 15px;
+
+    &__profile {
+        @include flex(column, flex-start, center);
+        gap: 25px;
+        background-color: #FFF;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    &__img {
+        border-radius: 50%;
+        width: 96px;
+    }
+
+    &__exit {
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 30px;
+        cursor: pointer;
+    }
+}
+
+.history {
+    padding-bottom: 25px;
+    background-color: #FFF;
+    border-radius: 15px;
+    border: 15px;
+
+    &__heading {
+        @include flex(row, flex-start, center);
+        height: 100px;
+        padding: 15px 0 0 3vw;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
+        margin-bottom: 25px;
+        background-color: #808080c4;
+    }
+
+    &__item {
+        text-align: left;
+        padding: 10px 0;
+        font-size: 1.2rem;
+        margin: 3px 15px;
+        color: #000000;
+        font-weight: 600;
+        cursor: pointer;
+
+        border: 1px solid transparent;
+
+        &:hover {
+            border-bottom: 1px solid #80808081;
+            border-top: 1px solid #80808081;
+        }
+    }
+}
+
+.fav {
+    position: relative;
+    grid-column-start: span 3;
+    margin-left: 40px;
+
+    &__header {
+        position: absolute;
+        top: 50%;
+        left: -75px;
+        transform: translateY(-50%) rotate(-90deg) scale(1.5);
+    }
+
+    &__list {
+        @include flex(row, flex-start, center);
+        max-width: 95vw;
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        gap: 2vw;
+        padding-right: 15px;
+
+        & .empty {
+            font-size: 2rem;
+            font-weight: 600;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+        & .product {
+            min-width: 230px;
+            transform: scale(0.9)
+        }
+    }
+
+    &:has(.empty) {
+        margin-left: 0;
+
+        .fav__header {
+            display: none;
+        }
+    }
+}
+
+.row {
+    @include flex(row, space-between, center);
+    gap: 3vw;
+    width: 100%;
+
+}
+
+.col {
+    margin: 0 15px;
+}

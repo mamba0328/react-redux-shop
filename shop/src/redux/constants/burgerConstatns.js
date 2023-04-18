@@ -1,0 +1,3 @@
+export const TOGGLE_BURGER = 'TOGGLE_BURGER';
+
+export const CLOSE_BURGER = 'CLOSE_BURGER';

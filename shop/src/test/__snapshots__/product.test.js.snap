@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Product matches snapshot 1`] = `
+<Product
+  inCart={false}
+  isFavorite={false}
+  product={
+    Object {
+      "code": "228627",
+      "color": "honey",
+      "img": "https://muztorg.ua/image/cache/catalog/99992/229497/229497_GIBSON%20LES%20PAUL%20TRIBUTE%20SATIN%20HONEYBURST_1-250x200.jpg",
+      "name": "GIBSON LES PAUL TRIBUTE SATIN",
+      "price": "44 400",
+    }
+  }
+  xButton={false}
+/>
+`;

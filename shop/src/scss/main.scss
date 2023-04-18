@@ -1,0 +1,71 @@
+@import 'normalize';
+@import 'vars';
+@import 'mixins';
+@import 'keyframes';
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Quicksand:wght@500&family=Roboto:wght@400;700&display=swap');
+
+@import 'buttons';
+@import 'modal';
+@import 'product';
+@import 'product-list';
+@import 'product-page';
+@import 'header';
+@import 'cart';
+@import 'form';
+@import 'personal-cab';
+@import 'loader';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    min-height: 100vh;
+    color: $font-color;
+    font-size: $font-size;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #dbdada;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.app {
+    @include flex(column, flex-start, center);
+    min-height: 100vh;
+    gap: 20px;
+}
+
+.main {
+    min-width: 100%;
+    padding: 25px 0;
+}
+
+.container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.empty {
+    margin-left: 25px;
+    text-align: left;
+}
+
+.icon {
+    width: 30px;
+
+    &__round {
+        border-radius: 50%;
+        border: 2px solid #000;
+        transform: scale(1.1);
+    }
+}

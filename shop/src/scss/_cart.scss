@@ -1,0 +1,54 @@
+.cart {
+    @include flex(row, flex-start, flex-start);
+
+    &__list {
+        @include flex(column, flex-start, flex-start);
+        gap: 25px;
+        margin-right: 100px;
+        height: 90vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        direction: rtl;
+        padding-left: 25px;
+    }
+
+
+    @media screen and (max-width:1095px) {
+        flex-direction: column;
+        align-items: center;
+
+        &__list {
+            height: 100%;
+            overflow: auto;
+            width: 100%;
+            padding: 15px 0;
+            align-items: center;
+            margin: 0 0 25px 0;
+        }
+    }
+
+    @media screen and (min-width:525px) {
+        & .product {
+            @include flex(row, flex-start, center);
+            min-width: 500px;
+            direction: ltr;
+            text-align: left;
+
+            &__img {
+                width: 230px;
+                margin: 0;
+            }
+
+            &__info {
+                width: 100%;
+            }
+
+            &__name {
+                overflow: initial;
+                display: inline-block;
+                -webkit-line-clamp: 3;
+                line-clamp: 3;
+            }
+        }
+    }
+}
