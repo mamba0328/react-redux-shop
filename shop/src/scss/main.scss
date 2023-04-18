@@ -46,7 +46,6 @@ code {
 
 .main {
     min-width: 100%;
-    padding: 25px 0;
 }
 
 .container {
@@ -63,7 +62,10 @@ code {
 .icon {
     width: 30px;
 
+
     &__round {
+        max-width: 30px;
+        max-height: 30px;
         border-radius: 50%;
         border: 2px solid #000;
         transform: scale(1.1);

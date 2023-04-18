@@ -38,7 +38,6 @@ const Main = () => {
     const cart = useSelector(state => state.rootReducer.cart);
     const user = useSelector(state => state.rootReducer.user);
     const loader = useSelector(state => state.rootReducer.loader);
-    const history = useSelector(state => state.rootReducer.history);
 
     function toggleDeleteModal() {
         return dispatch(showDeleteModal())
@@ -124,10 +123,10 @@ const Main = () => {
                         loader ? <Loader /> :
                             <div className='container'>
                                 <Routes >
-                                    <Route path="/" element={<Home products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} />} />
-                                    <Route path='/cart' element={<Cart products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} />} />
-                                    <Route path='/personal' element={<PersonalCabinet toggleFavorite={toggleFavorite} addToCart={addToCart} />} />
-                                    <Route path="/product/:id" element={<ProductPage addToCart={addToCart} toggleFavorite={toggleFavorite} />} />
+                                    <Route path="/" element={<Home products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />} />
+                                    <Route path='/cart' element={<Cart products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />} />
+                                    <Route path='/personal' element={<PersonalCabinet toggleFavorite={toggleFavorite} addToCart={addToCart} cart={cart} />} />
+                                    <Route path="/product/:id" element={<ProductPage addToCart={addToCart} toggleFavorite={toggleFavorite} cart={cart} />} />
                                     <Route path='/signup' element={<SignupForm />} />
                                 </Routes >
                             </div>

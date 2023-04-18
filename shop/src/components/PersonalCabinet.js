@@ -34,11 +34,19 @@ export const PersonalCabinet = (props) => {
         });
     }
 
+    function returnProductsImg(purchaseProducts) {
+        return purchaseProducts.map(code => {
+            const product = products.find(product => product.code === code);
+            if (product) return <img src={product.img} alt='product' className='history__img'></img>
+        })
+    }
+
     function showHistory() {
         if (history.length === 0) return <li><p>No purchases yet</p></li>
         return history.map(purchase => {
-            const date = new Date(purchase.time)
-            return <li><p>{date.toString()}</p><p>{purchase.total} UAH</p></li>
+            const date = new Date(purchase.time);
+            const formatedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`;
+            return <li className='history__elem'><div className='history__img-wrapper'>{returnProductsImg(purchase.products)}</div><p className='history__price'>{purchase.total} UAH</p><p className='history__date'>{formatedDate}</p></li>
         })
     }
 
