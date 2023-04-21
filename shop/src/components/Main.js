@@ -24,9 +24,11 @@ import { pend, unpend } from '../redux/actions/pendingProductActions';
 import setFavorite from '../redux/actions/setFavorite';
 import setCart from '../redux/actions/setCart';
 import { toggleLoader } from '../redux/actions/toggleLoader';
-
-import { getDatabase, ref, get, child } from "firebase/database";
 import { setHistory } from '../redux/actions/setHistory';
+import { setUserInfo } from '../redux/actions/setUserInfo';
+
+import { getDatabase, ref, get, child, update } from "firebase/database";
+
 
 const Main = () => {
     const dispatch = useDispatch();
@@ -49,10 +51,28 @@ const Main = () => {
     function toggleFavorite(productCode, e) {
         e.stopPropagation();
         if (favorite.includes(productCode) && favorite.length > 0) {
-            dispatch(setFavorite(user, favorite.filter(code => code !== productCode)));
+            writeUserFavorite(favorite.filter(code => code !== productCode));
+            dispatch(setFavorite(favorite.filter(code => code !== productCode)));
         } else {
-            dispatch(setFavorite(user, [...favorite, productCode]));
+            writeUserFavorite([...favorite, productCode]);
+            dispatch(setFavorite([...favorite, productCode]));
         }
+    }
+
+    function writeUserCart(cart) {
+        if (!user) return
+        const db = getDatabase();
+        return update(ref(db, 'users/' + user.uid), {
+            cart,
+        }).catch((error) => console.log(error))
+    }
+
+    function writeUserFavorite(favorite) {
+        if (!user) return
+        const db = getDatabase();
+        return update(ref(db, 'users/' + user.uid), {
+            favorite,
+        }).catch((error) => console.log(error))
     }
 
     function addToCart(productCode, e) {
@@ -62,7 +82,8 @@ const Main = () => {
     }
 
     function comfirmAddToCart() {
-        dispatch(setCart(user, [...cart, pendingProduct]))
+        writeUserCart([...cart, pendingProduct]);
+        dispatch(setCart([...cart, pendingProduct]));
         dispatch(unpend());
         toggleConfirmModal();
     }
@@ -74,7 +95,7 @@ const Main = () => {
     }
 
     function confirmRemoveFromCart() {
-        dispatch(setCart(user, cart.filter(product => product !== pendingProduct)))
+        dispatch(setCart(cart.filter(product => product !== pendingProduct)))
         dispatch(unpend());
         toggleDeleteModal();
     }
@@ -84,9 +105,10 @@ const Main = () => {
         return get(child(dbRef, `users/${user.uid}`)).then((snapshot) => {
             if (snapshot.exists()) {
                 const response = snapshot.val();
-                dispatch(setCart(user, response.cart || []));
-                dispatch(setFavorite(user, response.favorite || []));
-                dispatch(setHistory(user, response.history || []));
+                dispatch(setCart(response.cart || []));
+                dispatch(setFavorite(response.favorite || []));
+                dispatch(setHistory(response.history || []));
+                dispatch(setUserInfo(response.info || []));
             } else {
                 console.log('no data available')
             }
@@ -124,7 +146,7 @@ const Main = () => {
                             <div className='container'>
                                 <Routes >
                                     <Route path="/" element={<Home products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />} />
-                                    <Route path='/cart' element={<Cart products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />} />
+                                    <Route path='/cart' element={<Cart products={products} toggleFavorite={toggleFavorite} favorite={favorite} addToCart={addToCart} removeFromCart={removeFromCart} writeUserCart={writeUserCart} cart={cart} />} />
                                     <Route path='/personal' element={<PersonalCabinet toggleFavorite={toggleFavorite} addToCart={addToCart} cart={cart} />} />
                                     <Route path="/product/:id" element={<ProductPage addToCart={addToCart} toggleFavorite={toggleFavorite} cart={cart} />} />
                                     <Route path='/signup' element={<SignupForm />} />

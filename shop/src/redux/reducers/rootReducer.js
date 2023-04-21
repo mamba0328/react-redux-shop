@@ -9,4 +9,5 @@ import burgerMenu from './burgerReducer'
 import user from './authReducer'
 import { loader } from "./loaderReducer";
 import history from "./historyReducer";
-export const rootReducer = combineReducers({ confirmModal, deleteModal, products, pendingProduct, favorite, cart, burgerMenu, user, loader, history })
+import userInfo from "./userInfoReducer";
+export const rootReducer = combineReducers({ confirmModal, deleteModal, products, pendingProduct, favorite, cart, burgerMenu, user, loader, history, userInfo })

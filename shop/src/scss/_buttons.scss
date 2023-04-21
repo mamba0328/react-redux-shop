@@ -10,6 +10,44 @@
     text-align: center;
 }
 
+.okButton {
+    min-width: 25px;
+    min-height: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+        transform: scale(1.25);
+    }
+
+    &::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        top: 66%;
+        right: 64%;
+        background-color: #00c416;
+        transform: translate(50%, 50%) rotate(35deg);
+    }
+
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 79%;
+        height: 2px;
+        background-color: #00c416;
+        top: 50%;
+        right: 25%;
+        transform: translate(50%, 50%) rotate(-55deg);
+    }
+}
+
 .xButton {
     min-width: 25px;
     min-height: 25px;

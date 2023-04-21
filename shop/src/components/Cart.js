@@ -10,18 +10,29 @@ import {
 } from "firebase/database";
 import { setHistory } from "../redux/actions/setHistory";
 
+
 const Cart = (props) => {
-    const { products, favorite, toggleFavorite, addToCart, removeFromCart } = props;
+    const { products, favorite, toggleFavorite, addToCart, removeFromCart, writeUserCart } = props;
     const dispatch = useDispatch();
     const cart = useSelector(state => state.rootReducer.cart);
     const user = useSelector(state => state.rootReducer.user);
-    const history = useSelector(state => state.rootReducer.history)
+    const userInfo = useSelector(state => state.rootReducer.userInfo);
+    const history = useSelector(state => state.rootReducer.history);
+
     let productsInCart = getInCart();
 
     function getInCart() {
         if (cart.length === 0) return []
         const inCart = products.filter(product => cart.includes(product.code));
         return inCart
+    }
+
+    function writeUserHistory(history) {
+        if (!user) return
+        const db = getDatabase();
+        return update(ref(db, 'users/' + user.uid), {
+            history,
+        }).catch((error) => console.log(error))
     }
 
     function showProducts(products) {
@@ -41,9 +52,12 @@ const Cart = (props) => {
                 total: productsInCart.reduce((a, b) => a + +b.price.split(' ').join(''), 0),
                 time: Date.now(),
             }
-            dispatch(setHistory(user, history.concat(purchaseDetails)));
-            dispatch(setCart(user, []));
-            console.log(JSON.stringify(values, null, 2), JSON.stringify(productsInCart));
+            const newHistory = history.concat(purchaseDetails);
+            writeUserHistory(newHistory);
+            dispatch(setHistory(newHistory));
+
+            writeUserCart([]);
+            dispatch(setCart([]));
         } catch (e) {
             alert(e)
         }
@@ -63,7 +77,6 @@ const Cart = (props) => {
             .max(50, 'Must be 50 characters or less')
             .matches(/[A-Za-z0-9'\.\-\s\,]/, 'Invalid adress format')
             .required('Required'),
-
     })
 
     return (
@@ -75,11 +88,11 @@ const Cart = (props) => {
 
                 <Formik
                     initialValues={{
-                        firstName: '',
-                        lastName: '',
+                        firstName: [...user.displayName.split(' ')][0] || '',
+                        lastName: [...user.displayName.split(' ')][1] || '',
                         age: '',
-                        tel: '',
-                        adress: '',
+                        tel: userInfo.tel || '',
+                        adress: userInfo.adress || '',
                     }}
 
                     onSubmit={checkout}
@@ -106,7 +119,7 @@ const Cart = (props) => {
                                 type="number"
                             />
                         </div>
-                        <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} />
+                        <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} nameClass='form__field' />
                         <div className='form__field form__field_adress'>
                             <label htmlFor="adress">Adress</label>
                             <Field

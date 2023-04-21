@@ -1,72 +1,82 @@
 [
   {
-    "name": "JACKSON JS22L DKA AH",
+    "name": "Gibson Les Paul Custom EB GH",
     "price": "12 160",
-    "img": "https://muztorg.ua/image/cache/webp/catalog/99991/228627/228627_1-250x200.webp",
+    "img": "https://lh3.google.com/u/0/d/160J8BDZHHOlPUUAw2LDx9zuw4F-BNhw3=w1919-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1v8XmUrnfz_XGvqrDrZ01uKRwJHoxha_E=w1529-h968-iv1",
     "code": "228627",
     "color": "black"
   },
   {
-    "name": "SQUIER BY FENDER BULLET STRATOCASTER",
+    "name": "ESP LTD EC-Black Metal BLKS",
     "price": "9 120",
-    "img": "https://muztorg.ua/image/cache/webp/catalog/99995/227044/227044_0370001580_1-250x200.webp",
     "code": "231495",
-    "color": "white"
+    "color": "white",
+    "img": "https://lh3.google.com/u/0/d/10Rev1A3yDSW-RN-4oo9G-xmUdMk27umh=w1373-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1nexPrqLClnGtEXO9MKWMQF2tNb6P_4ec=w957-h944-iv1"
   },
   {
-    "name": "IBANEZ RGIB21",
+    "name": "Epiphone Billie Joe Armstrong LP Junior",
     "price": "37 620",
-    "img": "https://muztorg.ua/image/cache/webp/catalog/99995/230354/230354_1-250x200.webp",
     "code": "230354",
-    "color": "black"
+    "color": "black",
+    "img": "https://lh3.google.com/u/0/d/1A9a1P5HeVpZV3NK5nqejmDmJ-9jpoGfl=w1373-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1KG4LFPIZOmsozuf52Ujn7SaiGaveP7k0=w1529-h968-iv1"
   },
   {
-    "name": "JACKSON JS11 AR METALLIC",
-    "price": "8 170",
-    "img": "https://muztorg.ua/image/cache/webp/catalog/99992/229103/229103_jackson_js11_ar_2910121527_1-250x200.webp",
-    "code": "229103",
-    "color": "blue"
-  },
-  {
-    "name": "GRETSCH G5622 ELECTROMATIC CENTER",
-    "price": "28 120",
-    "img": "https://muztorg.ua/image/cache/catalog/99994/231225/231225_1-250x200.jpg",
-    "code": "231225",
-    "color": "brown oak"
-  },
-  {
-    "name": "FENDER VINTERA '60S STRATOCASTER",
-    "price": "55 100",
-    "img": "https://muztorg.ua/image/cache/catalog/99992/229010/229010_FENDER%20VINTERA%20%2760s%20STRATOCASTER%20MODIFIED%20PFN%20OLYMPIC%20WHITE_1-250x200.jpg",
-    "code": "229010",
-    "color": "olympic white"
-  },
-  {
-    "name": "FENDER PLAYER TELECASTER MN PWT",
-    "price": "37 240",
-    "img": "https://muztorg.ua/image/cache/catalog/99995/227546/227546_FENDER%20PLAYER%20TELECASTER%20MN%20PWT_1-250x200.jpg",
-    "code": "227546",
-    "color": "silver"
-  },
-  {
-    "name": "EPIPHONE SHERATON - II PRO EBONY",
-    "price": "32 680",
-    "img": "https://muztorg.ua/image/cache/catalog/99994/230114/230114_1-250x200.jpg",
-    "code": "230114",
-    "color": "black"
-  },
-  {
-    "name": "VOX MARK III MINI AG",
+    "name": "Gibson Les Paul 68 Custom Ebony ULA",
     "price": "9 880",
-    "img": "https://muztorg.ua/image/cache/catalog/99994/231637/231637_vox_mk3_mini_ag_1-250x200.jpeg",
     "code": "231637",
-    "color": "blue lagoon"
+    "color": "blue lagoon",
+    "img": "https://lh3.google.com/u/0/d/11afZFNQpeDgxQDpDD6GLst4hvfITaO3a=w1373-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1M-bw7zSOFaH-L-wn_SaunLhxgDmpBi5f=w1532-h968-iv1"
   },
   {
-    "name": "GIBSON LES PAUL TRIBUTE SATIN",
+    "name": "ESP LTD EC-256 Black Satin",
+    "price": "28 120",
+    "code": "231225",
+    "color": "brown oak",
+    "img": "https://lh3.google.com/u/0/d/1he0hDBs_RS67MtlXd6vY018YqVEKn58q=w1373-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1-XiNnvXSHXSbXAAfjpEnLaEEChrFy-ou=w1529-h968-iv1"
+  },
+  {
+    "name": "ESP LTD KH Demonology BLK Graphic",
+    "price": "55 100",
+    "code": "229010",
+    "color": "olympic white",
+    "img": "https://lh3.google.com/u/0/d/1XsXVCXIrG6EWRhY7IREB2R-6PWya-ObA=w957-h944-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1fWgQe0YrP-bsG2sXry1r78KUVlOMLlmp=w1529-h968-iv1"
+  },
+  {
+    "name": "Gibson Custom EDS 1275 CH",
+    "price": "37 240",
+    "code": "227546",
+    "color": "silver",
+    "img": "https://lh3.google.com/u/0/d/1Yz7Wn3OtVlgKjK__n7n-GXZH9Y-H47zu=w1532-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1Vu8YeE66FhrFC2oEwBxAwKGotr6P5nvA=w1532-h968-iv1"
+  },
+  {
+    "name": "Strandberg Singularity 7 NX Red Blast TT",
+    "price": "32 680",
+    "code": "230114",
+    "color": "black",
+    "img": "https://lh3.google.com/u/0/d/1WlrtnAVxTe0uwq_qK8NM5DanSJ7LJzS_=w1532-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1sTsknNn5vOiyw0X7VfR1_RkNy3zyHO8j=w1532-h968-iv1"
+  },
+  {
+    "name": "Squire Hello Kitty Stratocaster",
     "price": "44 400",
-    "img": "https://muztorg.ua/image/cache/catalog/99992/229497/229497_GIBSON%20LES%20PAUL%20TRIBUTE%20SATIN%20HONEYBURST_1-250x200.jpg",
     "code": "238647",
-    "color": "honey"
+    "color": "honey",
+    "img": "https://lh3.google.com/u/0/d/1s2BbGViXQojCdEf9XPtba9aRsR_w7dGY=w1532-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1BpJjwfGrxTmTBnE4iLnE3wg_bdu_aOL_=w1532-h968-iv1"
+  },
+  {
+    "name": "Solar Guitars A1.6ETC G2",
+    "price": "8 170",
+    "code": "229103",
+    "color": "blue",
+    "img": "https://lh3.google.com/u/0/d/1_h0Xb4ciTH-lPpEFMocantlVl3BakeNR=w1529-h968-iv1",
+    "imgShort": "https://lh3.google.com/u/0/d/1v8XmUrnfz_XGvqrDrZ01uKRwJHoxha_E=w1529-h968-iv1"
   }
 ]

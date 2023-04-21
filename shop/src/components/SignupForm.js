@@ -84,7 +84,7 @@ export const SignupForm = () => {
                     <Field id="email" name="email" className='input' />
                     <ErrorMessage name="email" component="div" className="error" />
                 </div>
-                <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} />
+                <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} nameClass='form__field' />
                 <div className='form__field form__field_submit'>
 
                     <button type="submit">Sign Up</button>

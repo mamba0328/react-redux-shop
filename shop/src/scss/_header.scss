@@ -1,5 +1,5 @@
 .header {
-    background-color: #FFF;
+    background-color: $bg;
     width: 100%;
 
     @media screen and (min-width: 769px) {
@@ -19,6 +19,12 @@
         margin: 0 auto 0 4vw;
         max-width: 800px;
         padding: 4px;
+    }
+
+    @media screen and (max-width:475px) {
+        &__search {
+            display: none;
+        }
     }
 }
 

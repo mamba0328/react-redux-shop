@@ -1,24 +1,17 @@
 .product {
-    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
     width: 100%;
     border-radius: 10px;
-    background-color: #FFF;
-    box-shadow: 0 3px 3px 3px #0001;
+    background-color: $card;
     cursor: pointer;
+    direction: ltr;
 
     &__img {
-        width: 100%;
-        height: 200px;
+        width: 200px;
         border-radius: 10px;
-        transform: scale(1.01);
-        box-shadow: 0 3px 3px 3px #0001;
-        margin-bottom: 20px;
         transition: all 0.1s ease-in-out;
-
-        &:hover {
-            box-shadow: 0 3px 3px 3px #ff5e001a;
-            transform: skewX(2deg)
-        }
     }
 
     &__info {
@@ -26,6 +19,11 @@
         gap: 20px;
         padding: 15px;
         padding-top: 0;
+    }
+
+    &__img,
+    &__info {
+        transform: translateY(-15%);
     }
 
     &__name {
@@ -47,18 +45,9 @@
     }
 
     &__star {
-        :hover {
-            color: #fb8e11cf;
-        }
-
         &.checked {
             color: #fb8e11cf !important;
         }
-    }
-
-
-    &:hover {
-        transform: scale(1.01)
     }
 }
 
@@ -67,4 +56,13 @@
 .flex-row {
     @include flex(row, space-between, center);
     width: 100%;
+}
+
+.scaled-down {
+    height: auto;
+    object-fit: contain;
+    width: 65px;
+    max-height: 202px;
+    margin-left: auto;
+    margin-right: auto;
 }
