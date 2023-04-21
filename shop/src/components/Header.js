@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 export const Header = () => {
     const user = useSelector(state => state.rootReducer.user);
     const cart = useSelector(state => state.rootReducer.cart);
@@ -11,18 +12,21 @@ export const Header = () => {
         <header className='header'>
             <div className='container'>
                 <nav className='nav'>
-                    <Link to='/'><img src='https://cdn-icons-png.flaticon.com/512/1946/1946488.png' alt='house' className='icon' /></Link>
-                    <input type='text' className='nav__search' placeholder='Search'></input>
                     <ul className='menu menu_icons'>
                         <li className='menu__item'>
-                            <Link to='/cart'>
-                                {cart.length === 0 ? null : <div className='counter'><p className='counter__number'>{cart.length}</p></div>}
-                                <img src='https://cdn-icons-png.flaticon.com/512/3144/3144456.png' className='icon' alt='cart' />
+                            <Link to={'/personal'} className='menu__link'>
+                                <img src={user ? user.photoURL || fallbackImg : fallbackImg} alt='person' className='icon icon__round' />
                             </Link>
                         </li>
+
+                        <li className='menu__item '>
+                            <Link to='/' className='menu__link menu__link_logo'><h4 className='logo'>The Guitars</h4></Link>
+                        </li>
+
                         <li className='menu__item'>
-                            <Link to={'/personal'}>
-                                <img src={user ? user.photoURL || fallbackImg : fallbackImg} alt='person' className='icon icon__round' />
+                            <Link to='/cart' className='menu__link'>
+                                {cart.length === 0 ? null : <div className='counter'><p className='counter__number'>{cart.length}</p></div>}
+                                <FontAwesomeIcon icon={faBagShopping} className='icon' alt='cart' />
                             </Link>
                         </li>
                     </ul>
