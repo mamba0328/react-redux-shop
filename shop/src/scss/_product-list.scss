@@ -6,11 +6,7 @@
     overflow-y: visible;
     overflow-x: auto;
     margin-bottom: 25px;
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    // row-gap: 25px;
 
-    // justify-items: center;
 
     &_column {
         flex-direction: column;
@@ -19,5 +15,18 @@
 
     &_fav {
         justify-items: flex-start;
+    }
+
+    @media screen and (min-width: 1199px) {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        row-gap: 25px;
+        padding-left: 0;
+        justify-items: center;
+
+        &_column {
+            grid-template: repeat(auto-fit, 100px) / repeat(auto-fit, minmax(250px, 1fr));
+        }
     }
 }

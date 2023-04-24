@@ -15,7 +15,7 @@ export const ProductPage = (props) => {
     const isFavorite = favorite.includes(id)
     const inCart = cart.includes(id)
     const [theProduct] = products.filter(product => product.code === id);
-    const { name, price, img, code, color } = theProduct ? theProduct : {};
+    const { name, price, img, imgShort, code, color } = theProduct ? theProduct : {};
     const { addToCart, toggleFavorite } = props;
 
     const navigate = useNavigate();
@@ -25,14 +25,65 @@ export const ProductPage = (props) => {
         navigate('/', { replace: true });
         document.location.reload();
     }
-
+    const shortName = `${name?.split(' ')[0]} ${name?.split(' ')[1]} ${name?.split(' ')[2]}`;
     useEffect(() => {
         if (products.length === 0) returnToHome();
     }, [])
 
     return (
         <div className='product-page'>
-            <div className='product-page__name'>
+            <div className='product-page__product'>
+                <div className='product-page__info'>
+                    <h2 className='product-page__name'>{shortName}</h2>
+                    <div className='product-page__rating rating'>
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                        <FontAwesomeIcon icon={faStar} />
+                    </div>
+                    <ul className='product-page__features'>
+                        <li className='product-page__feature feature'>
+                            <h4 className='feature__name'>Custom <br /> Alnico III</h4>
+                            <p className='feature__desc desc'>Pickups</p>
+                        </li>
+                        <li className='product-page__feature feature'>
+                            <h4 className='feature__name'>Chuncky <br />  C-Shape</h4>
+                            <p className='feature__desc desc'>Neck Profile</p>
+                        </li>
+                        <li className='product-page__feature feature'>
+                            <h4 className='feature__name'>22 <br /> Frets</h4>
+                            <p className='feature__desc desc'>Medium-Jumbo</p>
+                        </li>
+                    </ul>
+                </div>
+                <div className='product-page__img-wrapper'>
+                    <div className='filter'>
+                        <img src={imgShort} className='product-page__img' alt='product img' />
+                        <img src={imgShort} className='product-page__img shadow' alt='product img' />
+                    </div>
+
+                </div>
+                <div className='product-page__about'>
+                    <h3 className='product-page__name'>{name}</h3>
+                    <p className='product-page__desc desc'>
+                        Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl
+                    </p>
+                </div>
+            </div>
+            <div className='product-page__checkout'>
+                <h3>{price + ' UAH'}</h3>
+                <button className='product-page__favorite' onClick={(e) => toggleFavorite(code, e)}>
+                    <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product-page__star checked' : 'product-page__star'} />
+                </button>
+                {inCart ? <Button text='In cart' backgroundColor='#e74c3c' /> : <Button text='Add to cart' backgroundColor='#f5b642' onClick={(e) => addToCart(code, e)} />}
+            </div>
+
+        </div>
+    )
+}
+
+{/* <div className='product-page__name'>
                 <h3>{name}<span>{' ' + color}</span></h3>
                 <p className='product-page__code'>{'Code: ' + code}</p>
             </div>
@@ -43,17 +94,9 @@ export const ProductPage = (props) => {
                 <div className='product-page__actions'>
                     <h3>{price + ' UAH'}</h3>
                     {inCart ? <Button text='In cart' backgroundColor='#e74c3c' /> : <Button text='Add to cart' backgroundColor='#262626' onClick={(e) => addToCart(code, e)} />}
-                    <button className='product__favorite' onClick={(e) => toggleFavorite(code, e)}>
-                        <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product__star checked' : 'product__star'} />
+                    <button className='product-page__favorite' onClick={(e) => toggleFavorite(code, e)}>
+                        <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product-page__star checked' : 'product-page__star'} />
                     </button>
                 </div>
-                <div className='product-page__desc'>
-                    <h3 className='title'>Description</h3>
-                    <p className='text'>
-                        Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut pharetra sit amet aliquam id diam maecenas
-                    </p>
-                </div>
-            </div>
-        </div>
-    )
-}
+
+            </div> */}

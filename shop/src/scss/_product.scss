@@ -3,6 +3,7 @@
     flex-direction: column;
     position: relative;
     min-width: 200px;
+    max-width: 200px;
     border-radius: 25px;
     background-color: $card;
     cursor: pointer;
@@ -18,12 +19,7 @@
         position: absolute;
         object-fit: cover;
         width: 100%;
-
-        &_shadow {
-            filter: blur(10px) brightness(0);
-            transform: translate(5%, 2%);
-            z-index: -1;
-        }
+        z-index: 1;
     }
 
     &__info {
@@ -31,11 +27,6 @@
         gap: 10px;
         padding: 15px;
         padding-top: 0;
-    }
-
-    &__rating {
-        font-size: 0.8rem;
-        color: $star;
     }
 
     &__img-container,

@@ -17,7 +17,8 @@ const Product = (props) => {
         <li className={'product' + ' ' + additionalClass} onClick={() => handleClick(code)}>
             <div className='product__img-container'>
                 <img src={deckImg ? imgShort : img} className='product__img' alt='product img' />
-                <img src={deckImg ? imgShort : img} className='product__img product__img_shadow' alt='product img' />
+                <img src={deckImg ? imgShort : img} className='product__img product__img_shadow shadow' alt='product img' />
+
             </div>
             <div className='product__info'>
                 {/* <div className='flex-row'>
@@ -28,7 +29,7 @@ const Product = (props) => {
                 </div> */}
                 <h4 className='product__name'>{name}</h4>
                 {/* <p className='product__color'>{color}</p> */}
-                <div className='product__rating'>
+                <div className='product__rating rating'>
                     <FontAwesomeIcon icon={faStar} />
                     <FontAwesomeIcon icon={faStar} />
                     <FontAwesomeIcon icon={faStar} />
