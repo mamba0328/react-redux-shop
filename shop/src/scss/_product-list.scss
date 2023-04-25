@@ -1,8 +1,8 @@
 .product-list {
     @include flex(row, flex-start, center);
     gap: 15px;
-    width: 100vw;
-    padding: 40px 0 0 25px;
+    width: 95vw;
+    padding: 40px 0 0 10px;
     overflow-y: visible;
     overflow-x: auto;
     margin-bottom: 25px;

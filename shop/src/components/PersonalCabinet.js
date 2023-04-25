@@ -10,6 +10,9 @@ import {
     getDatabase, update, ref
 } from "firebase/database";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+
 export const PersonalCabinet = (props) => {
     const [showForm, setShowForm] = useState(false);
     const { toggleFavorite, addToCart } = props;
@@ -35,12 +38,12 @@ export const PersonalCabinet = (props) => {
         return favorites
     }
 
-    function showProducts(products) {
+    function showProducts(products, additionalClass, deckImg) {
         if (products.length === 0 || !products) return <li className="empty">No favorites yet</li>
         return products.map(product => {
             const inCart = cart.includes(product.code) ? true : false;
 
-            return <Product product={product} key={product.code} toggleFavorite={toggleFavorite} isFavorite={true} addToCart={addToCart} inCart={inCart} />
+            return <Product product={product} key={product.code} toggleFavorite={toggleFavorite} isFavorite={true} addToCart={addToCart} inCart={inCart} deckImg={deckImg} additionalClass={additionalClass} />
         });
     }
 
@@ -103,7 +106,7 @@ export const PersonalCabinet = (props) => {
                             {user.displayName}
                         </h2>
                         <div className='personal-cab__exit profile__exit' onClick={logout}>
-                            <img src={exitImg} alt='exit' className='icon' />
+                            <FontAwesomeIcon icon={faRightFromBracket} className='icon icon_leave' />
                         </div>
                     </div>
                     {showForm ?
@@ -176,7 +179,7 @@ export const PersonalCabinet = (props) => {
                 <div className='personal-cav fav'>
                     <h2 className='fav__header'>Favorites</h2>
                     <ul className='personal-cab__list fav__list'>
-                        {showProducts(favorites)}
+                        {showProducts(favorites, 'product_horizontal', true)}
                     </ul>
                 </div>
 

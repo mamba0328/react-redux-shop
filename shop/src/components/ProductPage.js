@@ -62,23 +62,21 @@ export const ProductPage = (props) => {
                         <img src={imgShort} className='product-page__img' alt='product img' />
                         <img src={imgShort} className='product-page__img shadow' alt='product img' />
                     </div>
-
                 </div>
                 <div className='product-page__about'>
+                    <div className='product-page__checkout'>
+                        <h3>{price + ' UAH'}</h3>
+                        <button className='product-page__favorite' onClick={(e) => toggleFavorite(code, e)}>
+                            <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product-page__star checked' : 'product-page__star'} />
+                        </button>
+                        {inCart ? <Button text='In cart' backgroundColor='#e74c3c' /> : <Button text='Add to cart' backgroundColor='#f5b642' onClick={(e) => addToCart(code, e)} />}
+                    </div>
                     <h3 className='product-page__name'>{name}</h3>
                     <p className='product-page__desc desc'>
                         Commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl
                     </p>
                 </div>
             </div>
-            <div className='product-page__checkout'>
-                <h3>{price + ' UAH'}</h3>
-                <button className='product-page__favorite' onClick={(e) => toggleFavorite(code, e)}>
-                    <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product-page__star checked' : 'product-page__star'} />
-                </button>
-                {inCart ? <Button text='In cart' backgroundColor='#e74c3c' /> : <Button text='Add to cart' backgroundColor='#f5b642' onClick={(e) => addToCart(code, e)} />}
-            </div>
-
         </div>
     )
 }
