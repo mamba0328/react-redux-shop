@@ -3,7 +3,7 @@
     max-width: 320px;
     width: 100%;
     padding: 50px;
-    background-color: #FFF;
+    background-color: $card;
     border-radius: 5px;
     box-shadow: 0 3px 3px 3px #00000018;
 
@@ -53,11 +53,16 @@
 }
 
 .input {
-    border: 1px solid #000;
+    border: 1px solid $font-color;
     background-color: transparent;
     padding: 5px;
-
+    color: $font-color;
     width: 100%;
+
+    &::placeholder {
+        color: $font-color;
+        opacity: 0.5;
+    }
 
     &_adress {
         width: 100%;
