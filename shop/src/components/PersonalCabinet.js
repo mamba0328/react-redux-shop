@@ -6,10 +6,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { NumberFormik } from './NumberFormic';
 import { setUserInfo } from '../redux/actions/setUserInfo';
-import {
-    getDatabase, update, ref
-} from "firebase/database";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
@@ -64,13 +60,13 @@ export const PersonalCabinet = (props) => {
         })
     }
 
-    function writeUserInfo(info) {
-        if (!user) return
-        const db = getDatabase();
-        return update(ref(db, 'users/' + user.uid), {
-            info,
-        }).catch((error) => console.log(error))
-    }
+    // function writeUserInfo(info) {
+    //     if (!user) return
+    //     const db = getDatabase();
+    //     return update(ref(db, 'users/' + user.uid), {
+    //         info,
+    //     }).catch((error) => console.log(error))
+    // }
 
     function logout() {
         localStorage.removeItem('user');
@@ -78,7 +74,7 @@ export const PersonalCabinet = (props) => {
     }
 
     const checkout = (values) => {
-        writeUserInfo(values);
+        // writeUserInfo(values);
         dispatch(setUserInfo(values));
         setShowForm(false);
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { auth } from '../firebase/firebaseApp';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+// import { auth } from '../firebase/firebaseApp';
+// import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { NumberFormik } from './NumberFormic';
 import { useDispatch } from 'react-redux';
 import { authenticate } from '../redux/actions/authUser';
@@ -12,15 +12,15 @@ export const SignupForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const checkout = (values) => {
-        createUserWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                dispatch(authenticate(user));
-                navigate('/', { replace: true });
-            })
-            .catch(err => alert(err))
-    }
+    // const checkout = (values) => {
+    //     createUserWithEmailAndPassword(auth, values.email, values.password)
+    //         .then((userCredential) => {
+    //             const user = userCredential.user;
+    //             dispatch(authenticate(user));
+    //             navigate('/', { replace: true });
+    //         })
+    //         .catch(err => alert(err))
+    // }
 
 
     const yupValidate = Yup.object({
@@ -55,7 +55,7 @@ export const SignupForm = () => {
                 tel: '',
             }}
 
-            onSubmit={checkout}
+            // onSubmit={checkout}
             validationSchema={yupValidate}
         >
             <Form className="form form_signup">

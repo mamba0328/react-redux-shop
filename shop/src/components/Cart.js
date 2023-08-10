@@ -5,9 +5,6 @@ import setCart from '../redux/actions/setCart';
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from 'yup';
 import { NumberFormik } from "./NumberFormic";
-import {
-    getDatabase, update, ref, get, child
-} from "firebase/database";
 import { setHistory } from "../redux/actions/setHistory";
 
 
@@ -27,13 +24,13 @@ const Cart = (props) => {
         return inCart
     }
 
-    function writeUserHistory(history) {
-        if (!user) return
-        const db = getDatabase();
-        return update(ref(db, 'users/' + user.uid), {
-            history,
-        }).catch((error) => console.log(error))
-    }
+    // function writeUserHistory(history) {
+    //     if (!user) return
+    //     const db = getDatabase();
+    //     return update(ref(db, 'users/' + user.uid), {
+    //         history,
+    //     }).catch((error) => console.log(error))
+    // }
 
     function showProducts(products) {
         if (products.length === 0 || !products) return
@@ -53,7 +50,7 @@ const Cart = (props) => {
                 time: Date.now(),
             }
             const newHistory = history.concat(purchaseDetails);
-            writeUserHistory(newHistory);
+            // writeUserHistory(newHistory);
             dispatch(setHistory(newHistory));
 
             writeUserCart([]);
@@ -88,8 +85,8 @@ const Cart = (props) => {
 
                 <Formik
                     initialValues={{
-                        firstName: [...user.displayName.split(' ')][0] || '',
-                        lastName: [...user.displayName.split(' ')][1] || '',
+                        firstName: user.displayName ? [...user.displayName.split(' ')][0] : '',
+                        lastName: user.displayName ? [...user.displayName.split(' ')][1] : '',
                         age: '',
                         tel: userInfo.tel || '',
                         adress: userInfo.adress || '',

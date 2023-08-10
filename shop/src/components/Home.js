@@ -1,10 +1,17 @@
 import Product from './Product'
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
 
 const Home = (props) => {
-    const { products, favorite, cart, toggleFavorite, addToCart, removeFromCart } = props;
+    const [randomProducts, setRandomProducts] = useState([]);
 
-    const randomProducts = takeRandomProducts(5, products);
+    const { products, favorite, cart, toggleFavorite, addToCart, removeFromCart, imageIsLoaded } = props;
+
+    useEffect(() => {
+        if (randomProducts.length === 0 && products.length) {
+            setRandomProducts(takeRandomProducts(5, products))
+        }
+    }, [products])
 
     function takeRandomProducts(numOfProds, arr) {
         if (numOfProds === arr.length) return arr;
@@ -19,14 +26,25 @@ const Home = (props) => {
         return randomProds
     }
 
-    function showProducts(products, additionalClass, deckImg) {
+    function showProducts(products, additionalClass, deckImg, imageIsLoaded) {
         if (!products) return
 
         return products.map(product => {
             const isFavorite = favorite.includes(product.code) ? true : false;
             const inCart = cart.includes(product.code) ? true : false;
 
-            return <Product product={product} key={product.code} toggleFavorite={toggleFavorite} isFavorite={isFavorite} addToCart={addToCart} removeFromCart={removeFromCart} inCart={inCart} deckImg={deckImg} additionalClass={additionalClass} />
+            return <Product
+                product={product}
+                key={product.code}
+                toggleFavorite={toggleFavorite}
+                isFavorite={isFavorite}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+                inCart={inCart}
+                deckImg={deckImg}
+                additionalClass={additionalClass}
+                imageIsLoaded={imageIsLoaded}
+            />
         });
     }
 
@@ -35,7 +53,7 @@ const Home = (props) => {
             <section className='section section__electric'>
                 <h2 className='title'>Electric Guitars</h2>
                 <ul className='product-list'>
-                    {showProducts(products)}
+                    {showProducts(products, '', false, imageIsLoaded)}
                 </ul>
             </section>
             <section className='section section__best-sellers'>

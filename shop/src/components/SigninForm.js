@@ -6,36 +6,36 @@ import { useDispatch } from 'react-redux';
 import { authenticate } from '../redux/actions/authUser';
 import { Link } from 'react-router-dom';
 
-import { auth } from '../firebase/firebaseApp';
-import provider from '../firebase/googleAuth';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+// import { auth } from '../firebase/firebaseApp';
+// import provider from '../firebase/googleAuth';
+// import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 export const SigninForm = () => {
     const dispatch = useDispatch();
-    const checkout = (values) => {
-        signInWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                dispatch(authenticate(user));
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage)
-            });
-    }
+    // const checkout = (values) => {
+    //     signInWithEmailAndPassword(auth, values.email, values.password)
+    //         .then((userCredential) => {
+    //             const user = userCredential.user;
+    //             dispatch(authenticate(user));
+    //         })
+    //         .catch((error) => {
+    //             const errorCode = error.code;
+    //             const errorMessage = error.message;
+    //             console.log(errorCode, errorMessage)
+    //         });
+    // }
 
-    const handleClick = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
-                dispatch(authenticate(user));
-            }).catch((error) => {
-                alert(error)
-            });
-    }
+    // const handleClick = () => {
+    //     signInWithPopup(auth, provider)
+    //         .then((result) => {
+    //             const credential = GoogleAuthProvider.credentialFromResult(result);
+    //             const token = credential.accessToken;
+    //             const user = result.user;
+    //             dispatch(authenticate(user));
+    //         }).catch((error) => {
+    //             alert(error)
+    //         });
+    // }
 
     const yupValidate = Yup.object({
         email: Yup.string()
@@ -52,7 +52,7 @@ export const SigninForm = () => {
                 password: '',
             }}
 
-            onSubmit={checkout}
+            // onSubmit={checkout}
             validationSchema={yupValidate}
         >
             <Form className="form form_signin">
@@ -68,7 +68,7 @@ export const SigninForm = () => {
                 </div>
                 <div className='form__field form__field_submit'>
                     <Link to='/signup' className='form__link'>Don't have an account?</Link>
-                    <button type='button' onClick={handleClick} className='google-auth'></button>
+                    {/* <button type='button' onClick={handleClick} className='google-auth'></button> */}
                     <button type="submit" className='submit'>Sign In</button>
                 </div>
 
