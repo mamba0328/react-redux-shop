@@ -1,12 +1,11 @@
 const express = require('express');
+const products = require('./routes/products')
+
 const app = express();
 const port = process.env.PORT || 5000;
 
 // API routes
-app.get('/api/data', (req, res) => {
-    const data = { message: 'Hello from Express!' };
-    res.json(data);
-});
+app.use('/api/products', products);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

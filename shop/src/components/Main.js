@@ -132,7 +132,7 @@ const Main = () => {
                 console.log(error)
             }
         } else {
-            dispatch(toggleLoader())
+            products.length > 0 && dispatch(toggleLoader())
         }
     }, [])
 
@@ -141,10 +141,14 @@ const Main = () => {
     }, [user])
 
     useEffect(() => {
-        if (assets === products.length * 2 && products.length > 0) {
+        if (assets >= products.length * 2 && products.length > 0) {
             dispatch(toggleLoader())
         }
     }, [assets, products])
+
+    useEffect(() => {
+        products.length > 0 && dispatch(toggleLoader())
+    }, [products])
 
 
     modalContent.deleteModal.actions = [<Button backgroundColor={'#0001'} text={'Ok'} onClick={confirmRemoveFromCart} key={Date.now()} />, <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleDeleteModal} key={Date.now() + 1} />];
