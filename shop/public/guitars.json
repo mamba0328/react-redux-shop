@@ -2,8 +2,6 @@
   {
     "name": "Gibson Les Paul Custom EB GH",
     "price": "12 160",
-    "img": "https://lh3.google.com/u/0/d/160J8BDZHHOlPUUAw2LDx9zuw4F-BNhw3=w1919-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1v8XmUrnfz_XGvqrDrZ01uKRwJHoxha_E=w1529-h968-iv1",
     "code": "228627",
     "color": "black"
   },
@@ -11,72 +9,54 @@
     "name": "ESP LTD EC-Black Metal BLKS",
     "price": "9 120",
     "code": "231495",
-    "color": "white",
-    "img": "https://lh3.google.com/u/0/d/10Rev1A3yDSW-RN-4oo9G-xmUdMk27umh=w1373-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1nexPrqLClnGtEXO9MKWMQF2tNb6P_4ec=w957-h944-iv1"
+    "color": "white"
   },
   {
     "name": "Epiphone Billie Joe Armstrong LP Junior",
     "price": "37 620",
     "code": "230354",
-    "color": "black",
-    "img": "https://lh3.google.com/u/0/d/1A9a1P5HeVpZV3NK5nqejmDmJ-9jpoGfl=w1373-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1KG4LFPIZOmsozuf52Ujn7SaiGaveP7k0=w1529-h968-iv1"
+    "color": "black"
   },
   {
     "name": "Gibson Les Paul 68 Custom Ebony ULA",
     "price": "9 880",
     "code": "231637",
-    "color": "blue lagoon",
-    "img": "https://lh3.google.com/u/0/d/11afZFNQpeDgxQDpDD6GLst4hvfITaO3a=w1373-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1M-bw7zSOFaH-L-wn_SaunLhxgDmpBi5f=w1532-h968-iv1"
+    "color": "blue lagoon"
   },
   {
     "name": "ESP LTD EC-256 Black Satin",
     "price": "28 120",
     "code": "231225",
-    "color": "brown oak",
-    "img": "https://lh3.google.com/u/0/d/1he0hDBs_RS67MtlXd6vY018YqVEKn58q=w1373-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1-XiNnvXSHXSbXAAfjpEnLaEEChrFy-ou=w1529-h968-iv1"
+    "color": "brown oak"
   },
   {
     "name": "ESP LTD KH Demonology BLK Graphic",
     "price": "55 100",
     "code": "229010",
-    "color": "olympic white",
-    "img": "https://lh3.google.com/u/0/d/1XsXVCXIrG6EWRhY7IREB2R-6PWya-ObA=w957-h944-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1fWgQe0YrP-bsG2sXry1r78KUVlOMLlmp=w1529-h968-iv1"
+    "color": "olympic white"
   },
   {
     "name": "Gibson Custom EDS 1275 CH",
     "price": "37 240",
     "code": "227546",
-    "color": "silver",
-    "img": "https://lh3.google.com/u/0/d/1Yz7Wn3OtVlgKjK__n7n-GXZH9Y-H47zu=w1532-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1Vu8YeE66FhrFC2oEwBxAwKGotr6P5nvA=w1532-h968-iv1"
+    "color": "silver"
   },
   {
     "name": "Strandberg Singularity 7 NX Red Blast TT",
     "price": "32 680",
     "code": "230114",
-    "color": "black",
-    "img": "https://lh3.google.com/u/0/d/1WlrtnAVxTe0uwq_qK8NM5DanSJ7LJzS_=w1532-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1sTsknNn5vOiyw0X7VfR1_RkNy3zyHO8j=w1532-h968-iv1"
+    "color": "black"
   },
   {
     "name": "Squire Hello Kitty Stratocaster",
     "price": "44 400",
     "code": "238647",
-    "color": "honey",
-    "img": "https://lh3.google.com/u/0/d/1s2BbGViXQojCdEf9XPtba9aRsR_w7dGY=w1532-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1BpJjwfGrxTmTBnE4iLnE3wg_bdu_aOL_=w1532-h968-iv1"
+    "color": "honey"
   },
   {
     "name": "Solar Guitars A1.6ETC G2",
     "price": "8 170",
     "code": "229103",
-    "color": "blue",
-    "img": "https://lh3.google.com/u/0/d/1_h0Xb4ciTH-lPpEFMocantlVl3BakeNR=w1529-h968-iv1",
-    "imgShort": "https://lh3.google.com/u/0/d/1v8XmUrnfz_XGvqrDrZ01uKRwJHoxha_E=w1529-h968-iv1"
+    "color": "blue"
   }
 ]

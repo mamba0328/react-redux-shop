@@ -3,9 +3,7 @@ import Button from './Buttons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { auth } from '../firebase/firebaseApp';
-import { authenticate } from '../redux/actions/authUser';
+import { useSelector } from 'react-redux';
 
 export const ProductPage = (props) => {
     const { id } = useParams();
@@ -15,17 +13,17 @@ export const ProductPage = (props) => {
     const isFavorite = favorite.includes(id)
     const inCart = cart.includes(id)
     const [theProduct] = products.filter(product => product.code === id);
-    const { name, price, img, imgShort, code, color } = theProduct ? theProduct : {};
+    const { name, price, code, } = theProduct ? theProduct : {};
     const { addToCart, toggleFavorite } = props;
-
+    const deckImg = `/png/${code ?? 227546}_deck.png`;
     const navigate = useNavigate();
-    const dispatch = useDispatch();
 
     const returnToHome = () => { // if u reload page with dynamic url - there is no products to show
         navigate('/', { replace: true });
         document.location.reload();
     }
     const shortName = `${name?.split(' ')[0]} ${name?.split(' ')[1]} ${name?.split(' ')[2]}`;
+
     useEffect(() => {
         if (products.length === 0) returnToHome();
     }, [])
@@ -58,9 +56,10 @@ export const ProductPage = (props) => {
                     </ul>
                 </div>
                 <div className='product-page__img-wrapper'>
+
                     <div className='filter'>
-                        <img src={imgShort} className='product-page__img' alt='product img' />
-                        <img src={imgShort} className='product-page__img shadow' alt='product img' />
+                        <img src={deckImg} className='product-page__img' alt='product img' />
+                        <img src={deckImg} className='product-page__img shadow' alt='product img' />
                     </div>
                 </div>
                 <div className='product-page__about'>
