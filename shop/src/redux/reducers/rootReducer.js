@@ -10,4 +10,5 @@ import user from './authReducer'
 import { loader } from "./loaderReducer";
 import history from "./historyReducer";
 import userInfo from "./userInfoReducer";
-export const rootReducer = combineReducers({ confirmModal, deleteModal, products, pendingProduct, favorite, cart, burgerMenu, user, loader, history, userInfo })
+import assets from "./assetsReducer";
+export const rootReducer = combineReducers({ assets, confirmModal, deleteModal, products, pendingProduct, favorite, cart, burgerMenu, user, loader, history, userInfo, })

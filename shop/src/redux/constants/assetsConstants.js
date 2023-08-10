@@ -1,0 +1,1 @@
+export const ASSET_LOADED = 'ASSET_LOADED';
