@@ -1,14 +1,3 @@
-import { Header } from './Header';
-import Button from './Buttons';
-import Modal from './Modal';
-import Home from './Home';
-import Cart from './Cart';
-import { SignupForm } from './SignupForm';
-import { PersonalCabinet } from './PersonalCabinet'
-import { Loader } from './Loader';
-
-import { ProductPage } from './ProductPage';
-import { modalContent } from '../modalContent';
 import { useEffect, useState } from 'react';
 import {
     BrowserRouter as Router,
@@ -27,6 +16,18 @@ import setCart from '../redux/actions/setCart';
 import { toggleLoader } from '../redux/actions/toggleLoader';
 import { setHistory } from '../redux/actions/setHistory';
 import { setUserInfo } from '../redux/actions/setUserInfo';
+
+import Header from '../components/Header';
+import Button from '../components/Button';
+import Modal from '../components/Modal';
+import Loader from '../components/Loader';
+
+import Home from './Home';
+import Cart from './Cart';
+import SignupForm from './SignupForm';
+import PersonalCabinet from './PersonalCabinet'
+import ProductPage from './ProductPage';
+
 
 const Main = () => {
     const [allAssetsLoaded, setAllAssetsLoaded] = useState(false);
@@ -150,9 +151,22 @@ const Main = () => {
         products.length > 0 && dispatch(toggleLoader())
     }, [products])
 
-
-    modalContent.deleteModal.actions = [<Button backgroundColor={'#0001'} text={'Ok'} onClick={confirmRemoveFromCart} key={Date.now()} />, <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleDeleteModal} key={Date.now() + 1} />];
-    modalContent.confrimModal.actions = [<Button backgroundColor={'#0001'} text={'Confirm'} onClick={comfirmAddToCart} key={Date.now()} />, <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleConfirmModal} key={Date.now() + 1} />];
+    const renderDeleteModalActions = () => {
+        return (
+            <div className='modal__buttons'>
+                <Button backgroundColor={'#0001'} text={'Ok'} onClick={confirmRemoveFromCart} key={Date.now()} />
+                <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleDeleteModal} key={Date.now() + 1} />
+            </div>
+        )
+    }
+    const renderConfirmModalActions = () => {
+        return (
+            <div className='modal__buttons'>
+                <Button backgroundColor={'#0001'} text={'Confirm'} onClick={comfirmAddToCart} key={Date.now()} />
+                <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleConfirmModal} key={Date.now() + 1} />
+            </div>
+        )
+    }
 
     return (
         <Router>
@@ -173,8 +187,22 @@ const Main = () => {
                     }
 
                 </main>
-                {deleteModal ? <Modal header={modalContent.deleteModal.header} closeButton={modalContent.deleteModal.closeButton} text={modalContent.deleteModal.text} actions={modalContent.deleteModal.actions} backgroundColor={modalContent.deleteModal.backgroundColor} onClick={toggleDeleteModal} /> : false}
-                {confirmModal ? <Modal header={modalContent.confrimModal.header} closeButton={modalContent.confrimModal.closeButton} text={modalContent.confrimModal.text} pendingProduct={pendingProduct} actions={modalContent.confrimModal.actions} backgroundColor={modalContent.confrimModal.backgroundColor} onClick={toggleConfirmModal} /> : false}
+                {deleteModal && <Modal
+                    header={'Do you want to delete this file?'}
+                    closeButton={true}
+                    text={`Once you delete this file, it won't be possible to undo this action. Are you sure you want to delete it?`}
+                    actions={renderDeleteModalActions()}
+                    backgroundColor={`red`}
+                    onClick={toggleDeleteModal} />}
+                {confirmModal && <Modal
+                    header={'Confrim your action'}
+                    closeButton={false}
+                    text={`Once you confrim your action, it won't be possible to undo the consequences. Are you sure you want to do it?`}
+                    pendingProduct={pendingProduct}
+                    actions={renderConfirmModalActions()}
+                    backgroundColor={`green`}
+                    onClick={toggleConfirmModal} />
+                }
             </div>
         </Router>
     );

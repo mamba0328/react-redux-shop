@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
-export const Header = () => {
+const Header = () => {
     const user = useSelector(state => state.rootReducer.user);
     const cart = useSelector(state => state.rootReducer.cart);
     const fallbackImg = 'https://cdn-icons-png.flaticon.com/512/1077/1077063.png';
@@ -35,3 +35,5 @@ export const Header = () => {
         </header>
     )
 }
+
+export default Header

@@ -1,11 +1,13 @@
-import Product from "./Product"
 import PropTypes from 'prop-types';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import setCart from '../redux/actions/setCart';
 import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { NumberFormik } from "./NumberFormic";
-import { setHistory } from "../redux/actions/setHistory";
+
+import { setHistory } from "../../redux/actions/setHistory";
+import setCart from '../../redux/actions/setCart';
+
+import Product from "../../components/Product/Product"
+import NumberFormik from "../../components/NumberFormic";
 
 
 const Cart = (props) => {

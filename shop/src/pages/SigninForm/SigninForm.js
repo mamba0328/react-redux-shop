@@ -1,16 +1,16 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
 import { useDispatch } from 'react-redux';
-import { authenticate } from '../redux/actions/authUser';
 import { Link } from 'react-router-dom';
+
+import { authenticate } from '../../redux/actions/authUser';
 
 // import { auth } from '../firebase/firebaseApp';
 // import provider from '../firebase/googleAuth';
 // import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
-export const SigninForm = () => {
+const SigninForm = () => {
     const dispatch = useDispatch();
     // const checkout = (values) => {
     //     signInWithEmailAndPassword(auth, values.email, values.password)
@@ -76,3 +76,5 @@ export const SigninForm = () => {
         </Formik>
     )
 }
+
+export default SigninForm

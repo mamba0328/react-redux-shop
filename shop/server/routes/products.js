@@ -5,12 +5,12 @@ const path = require('path');
 
 // Define your routes and handlers here
 router.get('/', (req, res) => {
-    const filePath = path.join(__dirname, '../data', 'guitars.json'); // Update the path and filename
+    const filePath = path.join(__dirname, '../data', 'guitars.json');
     res.sendFile(filePath)
 });
 
 router.get('/:id', (req, res) => {
-    const filePath = path.join(__dirname, '../data', 'guitars.json'); // Update the path and filename
+    const filePath = path.join(__dirname, '../data', 'guitars.json');
 
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
@@ -30,5 +30,4 @@ router.get('/:id', (req, res) => {
     });
 
 });
-// Export the router so it can be used in other files
 module.exports = router;

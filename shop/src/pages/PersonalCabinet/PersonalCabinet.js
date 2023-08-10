@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import Product from './Product';
 import { useSelector, useDispatch } from 'react-redux';
-import { SigninForm } from './SigninForm';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { NumberFormik } from './NumberFormic';
-import { setUserInfo } from '../redux/actions/setUserInfo';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
-export const PersonalCabinet = (props) => {
+import { setUserInfo } from '../../redux/actions/setUserInfo';
+
+import NumberFormik from '../../components/NumberFormic';
+import SigninForm from '../SigninForm';
+import Product from '../../components/Product';
+
+
+
+const PersonalCabinet = (props) => {
     const [showForm, setShowForm] = useState(false);
     const { toggleFavorite, addToCart } = props;
 
@@ -182,3 +187,5 @@ export const PersonalCabinet = (props) => {
             </div>
     )
 }
+
+export default PersonalCabinet

@@ -3,12 +3,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 // import { auth } from '../firebase/firebaseApp';
 // import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { NumberFormik } from './NumberFormic';
-import { useDispatch } from 'react-redux';
-import { authenticate } from '../redux/actions/authUser';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-export const SignupForm = () => {
+import { authenticate } from '../../redux/actions/authUser';
+
+import NumberFormik from '../../components/NumberFormic';
+
+
+const SignupForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -93,3 +96,5 @@ export const SignupForm = () => {
         </Formik>
     )
 }
+
+export default SignupForm

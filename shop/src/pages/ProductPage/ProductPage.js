@@ -1,32 +1,30 @@
 import React, { useEffect } from 'react'
-import Button from './Buttons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import { getSingleProduct } from '../api/getSingleProduct';
 
-export const ProductPage = (props) => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+
+import { getSingleProduct } from '../../api/getSingleProduct';
+
+import Button from '../../components/Button';
+
+
+
+const ProductPage = (props) => {
     const [productData, setProductData] = useState({});
     const [loaded, setLoaded] = useState(false);
 
     const { id } = useParams();
-    // const products = useSelector(state => state.rootReducer.products);
     const favorite = useSelector(state => state.rootReducer.favorite);
     const cart = useSelector(state => state.rootReducer.cart);
     const isFavorite = favorite.includes(id)
     const inCart = cart.includes(id)
-    // const [theProduct] = products.filter(product => product.code === id);
     const { name, price, code, } = productData ? productData : {};
     const { addToCart, toggleFavorite } = props;
     const deckImg = `/png/${code ?? 227546}_deck.png`;
-    const navigate = useNavigate();
 
-    const returnToHome = () => { // if u reload page with dynamic url - there is no products to show
-        navigate('/', { replace: true });
-        document.location.reload();
-    }
 
     const shortName = `${name?.split(' ')[0]} ${name?.split(' ')[1]} ${name?.split(' ')[2]}`;
 
@@ -107,20 +105,4 @@ export const ProductPage = (props) => {
     )
 }
 
-{/* <div className='product-page__name'>
-                <h3>{name}<span>{' ' + color}</span></h3>
-                <p className='product-page__code'>{'Code: ' + code}</p>
-            </div>
-            <div className='product-page__img-wrapper'>
-                <img src={img} className='product-page__img' alt='product img' />
-            </div>
-            <div className='product-page__more'>
-                <div className='product-page__actions'>
-                    <h3>{price + ' UAH'}</h3>
-                    {inCart ? <Button text='In cart' backgroundColor='#e74c3c' /> : <Button text='Add to cart' backgroundColor='#262626' onClick={(e) => addToCart(code, e)} />}
-                    <button className='product-page__favorite' onClick={(e) => toggleFavorite(code, e)}>
-                        <FontAwesomeIcon icon={faStar} className={isFavorite ? 'product-page__star checked' : 'product-page__star'} />
-                    </button>
-                </div>
-
-            </div> */}
+export default ProductPage

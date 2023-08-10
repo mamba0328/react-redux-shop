@@ -12,7 +12,7 @@ const Modal = (props) => {
                     {closeButton ? <div className='xButton white' onClick={onClick} data-testid='closeBtn' /> : false}
                 </header>
                 <p className='modal__content'>{text}</p>
-                <div className='modal__buttons'>{actions}</div>
+                {actions}
             </div>
         </div >
     );

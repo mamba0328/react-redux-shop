@@ -1,6 +1,7 @@
-import Product from './Product'
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+
+import Product from '../../components/Product'
 
 const Home = (props) => {
     const [randomProducts, setRandomProducts] = useState([]);

@@ -1,6 +1,6 @@
 import store from './redux/store'
 import { Provider } from 'react-redux'
-import Main from './components/Main'
+import Main from './pages/Main'
 
 const App = () => {
   return (
