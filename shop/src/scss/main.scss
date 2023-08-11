@@ -5,16 +5,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Quicksand:wght@500&family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato:wght@300;400;700&display=swap');
 
-@import 'buttons';
-@import 'modal';
-@import 'product';
 @import 'product-list';
-@import 'product-page';
-@import 'header';
-@import 'cart';
 @import 'form';
-@import 'personal-cab';
-@import 'loader';
+@import '../components/Button/buttons';
+@import '../components/Modal/modal';
+@import '../components/Product/product';
+@import '../components/Header/header';
+@import '../components/Loader/loader';
+@import '../pages/ProductPage/product-page';
+@import '../pages/Cart/cart';
+@import '../pages/PersonalCabinet/personal-cab';
 
 * {
     box-sizing: border-box;
