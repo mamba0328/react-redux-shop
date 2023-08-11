@@ -2,7 +2,7 @@ import { useField } from 'formik';
 import { PatternFormat } from 'react-number-format';
 
 const NumberFormik = ({ label, ...props }) => {
-    const [field, meta, helpers] = useField(props);
+    const [field, meta] = useField(props);
     const { name, nameClass } = props;
     return (
         <div className={nameClass} >

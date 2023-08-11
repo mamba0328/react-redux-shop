@@ -6,9 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 const Header = () => {
-    const user = useSelector(state => state.rootReducer.user);
     const cart = useSelector(state => state.rootReducer.cart);
-    const fallbackImg = 'https://cdn-icons-png.flaticon.com/512/1077/1077063.png';
 
     useEffect(() => {
         const animated = document.querySelector('.animated');

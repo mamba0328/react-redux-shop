@@ -11,7 +11,7 @@ import NumberFormik from "../../components/NumberFormic";
 
 
 const Cart = (props) => {
-    const { products, favorite, toggleFavorite, addToCart, removeFromCart, writeUserCart } = props;
+    const { products, favorite, toggleFavorite, addToCart, removeFromCart } = props;
     const dispatch = useDispatch();
     const cart = useSelector(state => state.rootReducer.cart);
     const user = useSelector(state => state.rootReducer.user);
@@ -26,13 +26,9 @@ const Cart = (props) => {
         return inCart
     }
 
-    // function writeUserHistory(history) {
-    //     if (!user) return
-    //     const db = getDatabase();
-    //     return update(ref(db, 'users/' + user.uid), {
-    //         history,
-    //     }).catch((error) => console.log(error))
-    // }
+    function writeUserCart() {
+        localStorage.removeItem('cart')
+    }
 
     function showProducts(products) {
         if (products.length === 0 || !products) return
