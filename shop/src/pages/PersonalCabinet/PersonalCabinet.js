@@ -4,12 +4,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import { setUserInfo } from '../../redux/actions/setUserInfo';
 
 import NumberFormik from '../../components/NumberFormic';
-import SigninForm from '../SigninForm';
 import Product from '../../components/Product';
 
 
@@ -31,7 +30,6 @@ const PersonalCabinet = (props) => {
 
     const favorites = getFavorites();
     const fallbackImg = 'https://cdn-icons-png.flaticon.com/512/1077/1077063.png';
-    const exitImg = 'https://cdn-icons-png.flaticon.com/512/1286/1286853.png';
 
     function getFavorites() {
         if (favorite.length === 0) return []
@@ -51,7 +49,7 @@ const PersonalCabinet = (props) => {
     function returnProductsImg(purchaseProducts) {
         return purchaseProducts.map((code, i = 0) => {
             const product = products.find(product => product.code === code);
-            if (product) return <img src={product.img} alt='product' className='history__img' key={Date.now() + i}></img>
+            if (product) return <img src={`/png/${code}_full.png`} alt='product' className='history__img' key={Date.now() + i}></img>
             i++
         })
     }
@@ -73,10 +71,10 @@ const PersonalCabinet = (props) => {
     //     }).catch((error) => console.log(error))
     // }
 
-    function logout() {
-        localStorage.removeItem('user');
-        document.location.reload();
-    }
+    // function logout() {
+    //     localStorage.removeItem('user');
+    //     document.location.reload();
+    // }
 
     const checkout = (values) => {
         // writeUserInfo(values);
@@ -95,96 +93,96 @@ const PersonalCabinet = (props) => {
     });
 
     return (
-        !user ? <SigninForm />
-            :
-            <div className='personal-cab'>
-                <div className='personal-cab__profile profile'>
-                    <div className='row'>
-                        <div className='personal-cab__photo profile__photo'>
-                            <img src={user.photoURL ? user.photoURL : fallbackImg} alt='person' className='profile__img' />
+        <div className='personal-cab'>
+            <div className='personal-cab__profile profile'>
+                <div className='row'>
+                    <div className='personal-cab__photo profile__photo'>
+                        {/* <img src={user.photoURL ? user.photoURL : fallbackImg} alt='person' className='profile__img' />
+                         */}
+                        <FontAwesomeIcon icon={faUser} className='profile__icon' />
+                    </div>
+                    <h2 className='personal-cab__name profile__name'>
+                        {user.displayName}
+                    </h2>
+                    {/* <div className='personal-cab__exit profile__exit' onClick={logout}>
+                        <FontAwesomeIcon icon={faRightFromBracket} className='icon icon_leave' />
+                    </div> */}
+                </div>
+                {showForm ?
+                    <Formik
+                        initialValues={{
+                            adress: adress || '',
+                            email: email || user.email || '',
+                            tel: tel || '',
+                        }}
+
+                        onSubmit={checkout}
+                        validationSchema={yupValidate}
+                    >
+                        <Form className="profile__info">
+                            <div className='row'>
+                                <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} nameClass='col' />
+                                <div className='col'>
+                                    <label htmlFor="email">Email adress</label>
+                                    <Field id="email" name="email" className='input' />
+                                    <ErrorMessage name="email" component="div" className="error" />
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col'>
+                                    <label htmlFor="adress">Adress</label>
+                                    <Field
+                                        id="adress"
+                                        name="adress"
+                                        placeholder=""
+                                        type="adress"
+                                        className='input input_adress'
+                                    />
+                                    <ErrorMessage name="adress" component="div" className="error" />
+                                </div>
+                                <div className='col f-row'>
+                                    <button className='okButton' type="submit"></button>
+                                    <button className='xButton' type='button' onClick={() => setShowForm(false)}></button>
+                                </div>
+                            </div>
+                        </Form>
+                    </Formik>
+                    :
+                    <div className='profile__info'>
+                        <div className='row'>
+                            <div className='col'>
+                                <p>Contact number</p>
+                                <h2 className='profile__data' onClick={() => setShowForm(true)}>{tel ? tel : 'No number provided'}</h2>
+                            </div>
+                            <div className='col'>
+                                <p>Email</p>
+                                <h2 className='profile__data' onClick={() => setShowForm(true)}>{email ? email : user ? user.email : 'No email provided'}</h2>
+                            </div>
                         </div>
-                        <h2 className='personal-cab__name profile__name'>
-                            {user.displayName}
-                        </h2>
-                        <div className='personal-cab__exit profile__exit' onClick={logout}>
-                            <FontAwesomeIcon icon={faRightFromBracket} className='icon icon_leave' />
+                        <div className='row'>
+                            <div className='col'>
+                                <p>Adress</p>
+                                <h2 className='profile__data' onClick={() => setShowForm(true)}>{adress ? adress : 'No adress provided'}</h2>
+                            </div>
                         </div>
                     </div>
-                    {showForm ?
-                        <Formik
-                            initialValues={{
-                                adress: adress || '',
-                                email: email || user.email || '',
-                                tel: tel || '',
-                            }}
-
-                            onSubmit={checkout}
-                            validationSchema={yupValidate}
-                        >
-                            <Form className="profile__info">
-                                <div className='row'>
-                                    <NumberFormik id="tel" name="tel" type={'tel'} label={'Contact number'} nameClass='col' />
-                                    <div className='col'>
-                                        <label htmlFor="email">Email adress</label>
-                                        <Field id="email" name="email" className='input' />
-                                        <ErrorMessage name="email" component="div" className="error" />
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                    <div className='col'>
-                                        <label htmlFor="adress">Adress</label>
-                                        <Field
-                                            id="adress"
-                                            name="adress"
-                                            placeholder=""
-                                            type="adress"
-                                            className='input input_adress'
-                                        />
-                                        <ErrorMessage name="adress" component="div" className="error" />
-                                    </div>
-                                    <div className='col f-row'>
-                                        <button className='okButton' type="submit"></button>
-                                        <button className='xButton' type='button' onClick={() => setShowForm(false)}></button>
-                                    </div>
-                                </div>
-                            </Form>
-                        </Formik>
-                        :
-                        <div className='profile__info'>
-                            <div className='row'>
-                                <div className='col'>
-                                    <p>Contact number</p>
-                                    <h2 class='profile__data' onClick={() => setShowForm(true)}>{tel ? tel : 'No number provided'}</h2>
-                                </div>
-                                <div className='col'>
-                                    <p>Email</p>
-                                    <h2 class='profile__data' onClick={() => setShowForm(true)}>{email ? email : user ? user.email : 'No email provided'}</h2>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col'>
-                                    <p>Adress</p>
-                                    <h2 class='profile__data' onClick={() => setShowForm(true)}>{adress ? adress : 'No adress provided'}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                </div>
-                <div className='personal-cab__history history'>
-                    <h2 className='history__heading'>Purchase history</h2>
-                    <ul className='personal-cab__list history__list'>
-                        {showHistory()}
-                    </ul>
-                </div>
-
-                <div className='personal-cav fav'>
-                    <h2 className='fav__header'>Favorites</h2>
-                    <ul className='personal-cab__list fav__list'>
-                        {showProducts(favorites, 'product_horizontal', true)}
-                    </ul>
-                </div>
-
+                }
             </div>
+            <div className='personal-cab__history history'>
+                <h2 className='history__heading'>Purchase history</h2>
+                <ul className='personal-cab__list history__list'>
+                    {showHistory()}
+                </ul>
+            </div>
+
+            <div className='personal-cav fav'>
+                <h2 className='fav__header'>Favorites</h2>
+                <ul className='personal-cab__list fav__list'>
+                    {showProducts(favorites, 'product_horizontal', true)}
+                </ul>
+            </div>
+
+        </div>
     )
 }
 

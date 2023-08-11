@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 const Header = () => {
     const user = useSelector(state => state.rootReducer.user);
@@ -22,7 +24,7 @@ const Header = () => {
                     <ul className='menu menu_icons'>
                         <li className='menu__item'>
                             <Link to={'/personal'} className='menu__link'>
-                                <img src={user ? user.photoURL || fallbackImg : fallbackImg} alt='person' className='icon icon__round' />
+                                <FontAwesomeIcon icon={faUser} className='icon' />
                             </Link>
                         </li>
 
