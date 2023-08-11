@@ -1,6 +1,8 @@
 import { SET_FAVORITE } from "../constants/productsConstants";
 
-function favorite(state = [], action) {
+const favoritesLocale = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function favorite(state = favoritesLocale, action) {
     switch (action.type) {
         case SET_FAVORITE: {
             return action.payload

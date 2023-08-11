@@ -1,8 +1,8 @@
 import { SET_CART } from "../constants/productsConstants"
 
-const cartState = JSON.parse(localStorage.getItem('cart')) || [];
+const cartLocale = JSON.parse(localStorage.getItem('cart')) || [];
 
-function cart(state = cartState, action) {
+function cart(state = cartLocale, action) {
     switch (action.type) {
         case SET_CART: {
             return action.payload

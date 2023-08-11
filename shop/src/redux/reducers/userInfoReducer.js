@@ -1,6 +1,8 @@
 import { SET_USER_INFO } from "../constants/userInfoConstants";
 
-function userInfo(state = [], action) {
+const userLocalInfo = JSON.parse(localStorage.getItem('user')) ?? [];
+
+function userInfo(state = userLocalInfo, action) {
     switch (action.type) {
         case SET_USER_INFO: {
             return action.payload

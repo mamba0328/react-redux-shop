@@ -3,6 +3,8 @@ import { SET_HISTORY } from "../constants/historyConstant";
 export const setHistory = (history) => async (dispatch) => {
     try {
         const newHistory = await history;
+        localStorage.setItem('history', JSON.stringify(newHistory));
+
         dispatch({
             type: SET_HISTORY,
             payload: newHistory,
