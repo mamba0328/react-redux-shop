@@ -9,10 +9,37 @@
     cursor: pointer;
     direction: ltr;
 
+    &:hover {
+        .product__img-container {
+            transform: translateY(-15%) rotate(-5deg);
+        }
+
+        .product__icon {
+            display: inline-block;
+        }
+    }
+
+
+    &__icon {
+        position: absolute;
+        right: 15px;
+        bottom: 15px;
+        display: none;
+        transition: all 0.3s ease-in-out;
+
+        &_add-to-cart {
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+    }
+
+
     &__img-container {
         min-height: 200px;
         width: 100%;
         position: relative;
+        transition: all 0.3s ease-in-out;
     }
 
     &__img {
@@ -34,6 +61,7 @@
         transform: translateY(-15%);
     }
 
+
     &__name,
     &__price {
         font-weight: 500;
@@ -52,6 +80,16 @@
     &_horizontal {
         flex-direction: row;
         background-color: transparent;
+
+        &:hover {
+            .product__img-container {
+                transform: translateY(-15%);
+            }
+
+            .product__icon {
+                display: none;
+            }
+        }
 
         & .product__img-container {
             min-width: 80px;

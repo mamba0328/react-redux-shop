@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import showConfirmModal from '../redux/actions/showConfirmModal';
 import showDeleteModal from '../redux/actions/showDeleteModal';
 import setProducts from '../redux/actions/setProducts';
-import { pend, unpend } from '../redux/actions/pendingProductActions';
+// import { pend, unpend } from '../redux/actions/pendingProductActions';
 import addAsset from '../redux/actions/assets';
 import setFavorite from '../redux/actions/setFavorite';
 import setCart from '../redux/actions/setCart';
@@ -18,8 +18,8 @@ import { setHistory } from '../redux/actions/setHistory';
 import { setUserInfo } from '../redux/actions/setUserInfo';
 
 import Header from '../components/Header';
-import Button from '../components/Button';
-import Modal from '../components/Modal';
+// import Button from '../components/Button';
+// import Modal from '../components/Modal';
 import Loader from '../components/Loader';
 
 import Home from './Home';
@@ -33,10 +33,10 @@ const Main = () => {
     const [allAssetsLoaded, setAllAssetsLoaded] = useState(false);
 
     const dispatch = useDispatch();
-    const confirmModal = useSelector(state => state.rootReducer.confirmModal);
-    const deleteModal = useSelector(state => state.rootReducer.deleteModal);
+    // const confirmModal = useSelector(state => state.rootReducer.confirmModal);
+    // const deleteModal = useSelector(state => state.rootReducer.deleteModal);
     const products = useSelector(state => state.rootReducer.products);
-    const pendingProduct = useSelector(state => state.rootReducer.pendingProduct);
+    // const pendingProduct = useSelector(state => state.rootReducer.pendingProduct);
     const favorite = useSelector(state => state.rootReducer.favorite);
     const cart = useSelector(state => state.rootReducer.cart);
     const user = useSelector(state => state.rootReducer.user);
@@ -80,28 +80,28 @@ const Main = () => {
 
     function addToCart(productCode, e) {
         e.stopPropagation();
-        dispatch(pend(productCode));
-        toggleConfirmModal();
+        dispatch(setCart([...cart, productCode]));
+        // toggleConfirmModal();
     }
 
-    function comfirmAddToCart() {
-        // writeUserCart([...cart, pendingProduct]);
-        dispatch(setCart([...cart, pendingProduct]));
-        dispatch(unpend());
-        toggleConfirmModal();
-    }
+    // function comfirmAddToCart() {
+    //     // writeUserCart([...cart, pendingProduct]);
+
+    //     dispatch(unpend());
+    //     toggleConfirmModal();
+    // }
 
     function removeFromCart(productCode, e) {
         e.stopPropagation();
-        dispatch(pend(productCode));
-        toggleDeleteModal();
+        dispatch(setCart(cart.filter(product => product !== productCode)))
+        // toggleDeleteModal();
     }
 
-    function confirmRemoveFromCart() {
-        dispatch(setCart(cart.filter(product => product !== pendingProduct)))
-        dispatch(unpend());
-        toggleDeleteModal();
-    }
+    // function confirmRemoveFromCart() {
+
+    //     dispatch(unpend());
+    //     toggleDeleteModal();
+    // }
 
     // function getUserDate() {
     //     const dbRef = ref(getDatabase());
@@ -151,22 +151,22 @@ const Main = () => {
         products.length > 0 && dispatch(toggleLoader())
     }, [products])
 
-    const renderDeleteModalActions = () => {
-        return (
-            <div className='modal__buttons'>
-                <Button backgroundColor={'#0001'} text={'Ok'} onClick={confirmRemoveFromCart} key={Date.now()} />
-                <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleDeleteModal} key={Date.now() + 1} />
-            </div>
-        )
-    }
-    const renderConfirmModalActions = () => {
-        return (
-            <div className='modal__buttons'>
-                <Button backgroundColor={'#0001'} text={'Confirm'} onClick={comfirmAddToCart} key={Date.now()} />
-                <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleConfirmModal} key={Date.now() + 1} />
-            </div>
-        )
-    }
+    // const renderDeleteModalActions = () => {
+    //     return (
+    //         <div className='modal__buttons'>
+    //             <Button backgroundColor={'#0001'} text={'Ok'} onClick={confirmRemoveFromCart} key={Date.now()} />
+    //             <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleDeleteModal} key={Date.now() + 1} />
+    //         </div>
+    //     )
+    // }
+    // const renderConfirmModalActions = () => {
+    //     return (
+    //         <div className='modal__buttons'>
+    //             <Button backgroundColor={'#0001'} text={'Confirm'} onClick={comfirmAddToCart} key={Date.now()} />
+    //             <Button backgroundColor={'#0001 '} text={'Cancel'} onClick={toggleConfirmModal} key={Date.now() + 1} />
+    //         </div>
+    //     )
+    // }
 
     return (
         <Router>
@@ -187,7 +187,7 @@ const Main = () => {
                     }
 
                 </main>
-                {deleteModal && <Modal
+                {/* {deleteModal && <Modal
                     header={'Do you want to delete this file?'}
                     closeButton={true}
                     text={`Once you delete this file, it won't be possible to undo this action. Are you sure you want to delete it?`}
@@ -202,7 +202,7 @@ const Main = () => {
                     actions={renderConfirmModalActions()}
                     backgroundColor={`green`}
                     onClick={toggleConfirmModal} />
-                }
+                } */}
             </div>
         </Router>
     );
