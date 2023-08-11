@@ -59,3 +59,17 @@
         transform: rotate(50deg) scale(1);
     }
 }
+
+@keyframes coinfall {
+    0% {
+        transform: translateY(-25px);
+    }
+
+    75% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

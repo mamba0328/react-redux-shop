@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,13 @@ const Header = () => {
     const user = useSelector(state => state.rootReducer.user);
     const cart = useSelector(state => state.rootReducer.cart);
     const fallbackImg = 'https://cdn-icons-png.flaticon.com/512/1077/1077063.png';
+
+    useEffect(() => {
+        const animated = document.querySelector('.animated');
+        animated?.classList.remove('animated');
+        const offsetWidth = animated?.offsetWidth; //delay
+        animated?.classList.add('animated');
+    }, [cart])
 
     return (
         <header className='header'>
@@ -25,7 +32,7 @@ const Header = () => {
 
                         <li className='menu__item'>
                             <Link to='/cart' className='menu__link'>
-                                {cart.length === 0 ? null : <div className='counter'><p className='counter__number'>{cart.length}</p></div>}
+                                {cart.length === 0 ? null : <div className='counter animated'><p className='counter__number'>{cart.length}</p></div>}
                                 <FontAwesomeIcon icon={faBagShopping} className='icon' alt='cart' />
                             </Link>
                         </li>
