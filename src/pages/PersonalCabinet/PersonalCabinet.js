@@ -170,7 +170,7 @@ const PersonalCabinet = (props) => {
             </div>
             <div className='personal-cab__history history'>
                 <h2 className='history__heading'>Purchase history</h2>
-                <ul className='personal-cab__list history__list'>
+                <ul className='personal-cab__list history__list custom-scrollbar'>
                     {showHistory()}
                 </ul>
             </div>

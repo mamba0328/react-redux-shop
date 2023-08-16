@@ -60,16 +60,16 @@ const Cart = (props) => {
 
     const yupValidate = Yup.object({
         firstName: Yup.string()
-            .max(15, 'Must be 15 characters or less')
+            .max(15, 'Max 15 characters')
             .required('Required'),
         lastName: Yup.string()
-            .max(20, 'Must be 20 characters or less')
+            .max(20, 'Max 20 characters')
             .required('Required'),
         tel: Yup.string()
             .matches(/^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{2}[- ]\d{2}?$/, 'Invalid format')
             .required('Required'),
         adress: Yup.string()
-            .max(50, 'Must be 50 characters or less')
+            .max(50, 'Max 50 characters')
             .matches(/[A-Za-z0-9'\.\-\s\,]/, 'Invalid adress format')
             .required('Required'),
     })
@@ -128,7 +128,7 @@ const Cart = (props) => {
                         </div>
                         <div className='form__field form__field_submit'>
                             <p>Total: {productsInCart.reduce((a, b) => a + +b.price.split(' ').join(''), 0)} UAH</p>
-                            <button type="submit">Checkout</button>
+                            <button className={'form__button'} type="submit">Checkout</button>
                         </div>
 
                     </Form>

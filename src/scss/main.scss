@@ -58,6 +58,28 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+
+.custom-scrollbar {
+    &::-webkit-scrollbar {
+        height: 10px;
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: lighten($card, 10%);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: darken($card, 1%);
+        width: 10%;
+    }
+
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
 .app {
     @include flex(column, flex-start, center);
     min-height: 100vh;
