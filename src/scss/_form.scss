@@ -1,0 +1,139 @@
+.form {
+    @include flex(column, center, center);
+    max-width: 320px;
+    width: 100%;
+    padding: 50px;
+    background-color: $card;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 3px #00000018;
+
+    &_signup,
+    &_signin {
+        margin: 0 auto;
+        margin-top: 250px;
+    }
+
+    &__button{ 
+        background-color: $star;
+        border: none;
+        color: #FFF;
+        font-weight: 500;
+        padding: 5px 15px;
+        font-size: 1.33rem;
+        cursor: pointer;
+
+        &:hover{ 
+            color: $star;
+            background-color: #fff;
+        }
+    }
+
+    &__link {
+        margin-right: auto;
+    }
+
+    &__field {
+        @include flex(column, flex-start, flex-start);
+        gap: 5px;
+        position: relative;
+
+        &_adress {
+            grid-column-start: span 2;
+        }
+
+        &_submit {
+            @include flex(column, center, center);
+            padding-top: 10px;
+        }
+
+    }
+
+    @media screen and (min-width:525px) {
+        max-width: 500px;
+        display: grid;
+        align-items: flex-start;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5px;
+        row-gap: 25px;
+
+        &__field_submit {
+            grid-column-start: span 2;
+
+            gap: 30px;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}
+
+.input {
+    border: 1px solid $font-color;
+    background-color: transparent;
+    padding: 5px;
+    color: $font-color;
+    width: 100%;
+    
+    &::placeholder {
+        color: $font-color;
+        opacity: 0.5;
+    }
+
+    &_adress {
+        width: 100%;
+    }
+
+    &[type='number']{
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        margin: 0;
+        }
+    }
+    
+    &:focus{
+        outline: 1px solid $font-color;
+    }
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active{
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: $font-color;
+        transition: background-color 5000s ease-in-out 0s;
+        box-shadow: none;
+    }
+}
+
+
+.error {
+    color: rgb(185, 29, 29);
+    font-weight: 600;
+    bottom: -20px;
+    position: absolute;
+}
+
+.google-auth {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    box-shadow: 1px 2px 3px 1px #00000075;
+    background-color: transparent;
+    background-image: url('https://img.icons8.com/color/256/google-logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.submit {
+    cursor: pointer;
+    background-color: none;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    font-weight: 600;
+    box-shadow: 1px 2px 3px 1px #00000075;
+
+}
