@@ -1,0 +1,15 @@
+import React from 'react'
+
+export default function Banner(props) {
+  const { title, content, customBannerClassName = '', } = props;
+
+
+  return (
+    <div className={`banner ${customBannerClassName}`}>
+      <h2 className='banner__title'>{title}</h2>
+      <p className='banner__content'>{content}</p>
+      <div className='banner__background'>
+      </div>
+    </div>
+  )
+}

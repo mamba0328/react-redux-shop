@@ -1,0 +1,25 @@
+.slider{
+    max-width: 1440px;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.slide{
+    height: 500px;
+    position: relative;
+    z-index: 1;
+    max-width: 1270px;
+
+    &__content{ 
+        font-size: 4rem;
+        padding: 25px;
+        font-weight: 700;
+    }
+    
+    &__img{
+        z-index: -1;
+        position: absolute;
+        top: -50%;
+        left: 0;
+    }
+}

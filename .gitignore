@@ -24,3 +24,6 @@ yarn-error.log*
 
 #styles 
 *.css
+
+#etc
+todo.md

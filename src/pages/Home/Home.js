@@ -1,7 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 import { useState, useEffect } from 'react';
 
+import sliderConfig from './configs/sliderConfig';
+
 import Product from '../../components/Product'
+import Banner from '../../components/Banner'
+import SlickSlider from '../../components/Slider'
 
 const Home = (props) => {
     const [randomProducts, setRandomProducts] = useState([]);
@@ -49,14 +53,27 @@ const Home = (props) => {
         });
     }
 
+    function renderSliderContent() {
+        return sliderConfig.map((slide, index) => { 
+            return (
+                <div className='slider__slide slide' key={index}>
+                    <h2 className='slide__content'>{slide.content}</h2>
+                    <img src={slide.img} alt={'ad'} className='slide__img'/>
+                </div>
+            )
+        })
+    }
+
     return (
         <div className='home'>
+            <Banner title={'The guitars'} content={'New coming-ins already available'} />
             <section className='section section__electric'>
                 <h2 className='title'>Electric Guitars</h2>
                 <ul className='product-list'>
                     {showProducts(products, '', false, imageIsLoaded)}
                 </ul>
             </section>
+            <SlickSlider sliderContent={renderSliderContent()} />
             <section className='section section__best-sellers'>
                 <h2 className='title'>Best sellers</h2>
                 <ul className='product-list product-list_column'>
