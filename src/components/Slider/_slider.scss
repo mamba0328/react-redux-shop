@@ -1,25 +1,22 @@
-.slider{
-    max-width: 1440px;
-    width: 100%;
+.slider{ 
     margin-bottom: 25px;
+    @media screen and (min-width:1440px){
+        padding: 0 25px;
+    }
 }
-
 .slide{
     height: 500px;
+    background-size: auto;
+    background-position: 0 -200px;
     position: relative;
-    z-index: 1;
-    max-width: 1270px;
 
-    &__content{ 
+    &__content{
+        position: absolute;
+        bottom:25px;
+        left: 25px;
+
         font-size: 4rem;
-        padding: 25px;
         font-weight: 700;
     }
-    
-    &__img{
-        z-index: -1;
-        position: absolute;
-        top: -50%;
-        left: 0;
-    }
+
 }

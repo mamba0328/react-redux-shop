@@ -6,8 +6,11 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-
     cursor: pointer;
+
+    @media screen and (min-width:1440px){
+        padding: 0 25px;
+    }
 
     &:hover {
         .banner__title {
@@ -20,29 +23,36 @@
 
         .banner__background {
             background-position: 0 -400px;
+
+            @media screen and (min-width:1440px){
+                background-position: -65px -400px;
+            }
         }
     }
 
     &__title {
-        position: absolute;
-        bottom: -100px;
+
         padding: 25px;
         font-size: 1rem;
         transition: all 0.33s ease-in;
 
         font-family: "Dancing Script", cursive;
+
+        
+        @media screen and (min-width:756px){
+            position: absolute;
+            bottom: -100px;
+        }
     }
 
     &__content {
-        position: absolute;
-        bottom: -100px;
         padding: 25px;
         transition: all 0.33s ease-in;
 
-        color: #fff;
-        font-weight: 700;
-        font-size: 4rem;
-        text-shadow: -3px 3px 3px #d4262680;
+        @media screen and (min-width:756px){
+            position: absolute;
+            bottom: -100px;
+        }
     }
 
     &__background {
@@ -59,5 +69,9 @@
         position: absolute;
         z-index: -1;
         top: 0;
+        
+        @media screen and (min-width:1440px){
+            background-position: -65px -300px;
+        }
     }
 }

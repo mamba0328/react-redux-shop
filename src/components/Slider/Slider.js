@@ -1,39 +1,42 @@
 import React from "react";
-import Slider from "react-slick";
+import { Carousel } from "react-responsive-carousel";
 import PropTypes from 'prop-types';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SlickSlider = (props) => {
-  const { settings, sliderContent } = props;
+  const { sliderContent, showArrows, showStatus, showIndicators, showThumbs, autoPlay, infiniteLoop} = props;
 
   return (
-    <Slider {...settings} className="slider">
-        {sliderContent}
-    </Slider>
+      <Carousel
+        showArrows={showArrows}
+        showThumbs={showThumbs}
+        showStatus={showStatus}
+        showIndicators={showIndicators}
+        autoPlay={autoPlay}
+        infiniteLoop={infiniteLoop}
+        className="slider">
+            {sliderContent}
+        </Carousel>
   );
 }
 
-const settings = {
-  autoplay: true,
-  autoplaySpeed: 5000,
-  lazyLoad: true,
-  arrows: false,
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1
-};
-
 SlickSlider.defaultProps = {
-  settings,
+  infiniteLoop:true,
+  autoPlay:true,
+  showArrows: false,
+  showStatus: false,
+  showIndicators: true,
+  showThumbs:false,
   sliderContent: <div> 1 </div>
 }
 
 SlickSlider.propTypes = {
-  settings: PropTypes.object,
+  autoPlay:PropTypes.bool,
+  showArrows: PropTypes.bool,
+  showStatus: PropTypes.bool,
+  showIndicators: PropTypes.bool,
+  showThumbs: PropTypes.bool,
   sliderContent: PropTypes.array.isRequired,
 }
 

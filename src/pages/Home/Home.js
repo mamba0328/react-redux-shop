@@ -56,9 +56,8 @@ const Home = (props) => {
     function renderSliderContent() {
         return sliderConfig.map((slide, index) => { 
             return (
-                <div className='slider__slide slide' key={index}>
-                    <h2 className='slide__content'>{slide.content}</h2>
-                    <img src={slide.img} alt={'ad'} className='slide__img'/>
+                <div className='slider__slide slide' key={index} style={{'backgroundImage': `url(${slide.img})`, }}>
+                    <h2 className='slide__content ad-title'>{slide.content}</h2>
                 </div>
             )
         })

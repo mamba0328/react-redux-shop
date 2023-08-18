@@ -7,9 +7,8 @@ export default function Banner(props) {
   return (
     <div className={`banner ${customBannerClassName}`}>
       <h2 className='banner__title'>{title}</h2>
-      <p className='banner__content'>{content}</p>
-      <div className='banner__background'>
-      </div>
+      <p className='banner__content ad-title'>{content}</p>
+      <div className='banner__background'/>
     </div>
   )
 }
