@@ -1,0 +1,47 @@
+.comment{
+    width: 100%;
+    margin: 5px 15px;
+    padding: 15px;
+
+    cursor: pointer;
+    background-color: $card;
+    border-radius: 15px;
+    transition: all ease-in-out 0.3s;
+
+    &_invert{ 
+        color:$card;
+        background-color: $font-color;
+    }
+
+    &__img{ 
+        max-width: 50px;
+        margin-bottom: 10px;
+        grid-row-start: span 2;
+    }
+
+    &__title{
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    &__author{
+        font-size: 0.8rem;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+
+    &:hover{ 
+        transform: scale(1.05);
+    }
+
+    @media screen and (min-width:1200px) {
+        display: inline-block;
+        max-width: 250px;
+        aspect-ratio: 2.5/4;
+    }
+
+    @media screen and (min-width:1365px){
+        max-width: 300px;
+        aspect-ratio: 3/4;
+    }
+
+}
