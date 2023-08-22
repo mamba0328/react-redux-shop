@@ -1,7 +1,7 @@
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
-import sliderConfig from './configs/sliderConfig';
+import {sliderConfig} from './configs';
 
 import Product from '../../components/Product'
 import Banner from '../../components/Banner'
@@ -61,24 +61,24 @@ const Home = (props) => {
                 </div>
             )
         })
-    }
+    }  
 
     return (
         <div className='home'>
             <Banner title={'The guitars'} content={'New coming-ins already available'} />
-            <section className='section section__electric'>
+            <section className='section section_electric'>
                 <h2 className='title'>Electric Guitars</h2>
                 <ul className='product-list'>
                     {showProducts(products, '', false, imageIsLoaded)}
                 </ul>
             </section>
-            <SlickSlider sliderContent={renderSliderContent()} />
-            <section className='section section__best-sellers'>
+            <section className='section section_best-sellers'>
                 <h2 className='title'>Best sellers</h2>
                 <ul className='product-list product-list_column'>
                     {showProducts(randomProducts, 'product_horizontal', true)}
                 </ul>
             </section>
+            <SlickSlider sliderContent={renderSliderContent()} />
         </div>
 
     )

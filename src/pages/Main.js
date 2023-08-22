@@ -13,6 +13,7 @@ import { toggleLoader } from '../redux/actions/toggleLoader';
 
 import Header from '../components/Header';
 import Loader from '../components/Loader';
+import Footer from '../components/Footer/Footer';
 import Home from './Home';
 import Cart from './Cart';
 import PersonalCabinet from './PersonalCabinet'
@@ -78,7 +79,7 @@ const Main = () => {
                                 </Routes >
                             </div>
                     }
-
+                <Footer/>
                 </main>
             </div>
         </Router>

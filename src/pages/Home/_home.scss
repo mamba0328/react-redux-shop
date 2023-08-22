@@ -1,0 +1,10 @@
+.section{ 
+
+    &_feedback{ 
+        margin-bottom: 25px;
+        padding: 0 15px;
+        @include flex(row, space-between, flex-start);
+        flex-wrap: wrap;
+
+    }
+}

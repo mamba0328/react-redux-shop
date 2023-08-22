@@ -8,14 +8,17 @@
 @import 'product-list';
 @import 'form';
 @import '../components/Button/buttons';
+@import '../components/Comment/comment';
 @import '../components/Banner/banner';
 @import '../components/Slider/slider';
 @import '../components/Modal/modal';
+@import '../components/Footer/footer';
 @import '../components/Product/product';
 @import '../components/Header/header';
 @import '../components/Loader/loader';
 @import '../pages/ProductPage/product-page';
 @import '../pages/Cart/cart';
+@import '../pages/Home/home';
 @import '../pages/PersonalCabinet/personal-cab';
 
 * {
